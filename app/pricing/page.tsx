@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+import WhatsAppButton from "@/components/whatsapp-button"
 import PricingSection from "@/components/pricing-section"
 
 export const metadata: Metadata = {
@@ -17,7 +20,10 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <main className="min-h-screen">
+      <Header />
       <PricingSection />
+      <Footer />
+      <WhatsAppButton />
     </main>
   )
 }

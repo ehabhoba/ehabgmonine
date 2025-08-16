@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Cairo } from "next/font/google"
-import { Work_Sans, Open_Sans } from "next/font/google"
 import "./globals.css"
 import AnimatedBackground from "@/components/animated-background"
 import ClientComponents from "@/components/client-components"
@@ -9,27 +8,12 @@ import ThemeToggle from "@/components/theme-toggle"
 import AccessibilityMenu from "@/components/accessibility-menu"
 import PerformanceMonitor from "@/components/performance-monitor"
 import SmartNotifications from "@/components/smart-notifications"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import SimpleHeader from "@/components/simple-header"
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   display: "swap",
   variable: "--font-cairo",
-})
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-work-sans",
-  weight: ["400", "600", "700"],
-})
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
-  weight: ["400", "500", "600"],
 })
 
 export const metadata: Metadata = {
@@ -75,7 +59,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ehabgm.online",
   },
-  generator: "v0.app",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -84,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} ${workSans.variable} ${openSans.variable} antialiased`}>
+    <html lang="ar" dir="rtl" className={`${cairo.variable} antialiased`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="geo.region" content="EG-C" />
@@ -138,9 +122,8 @@ export default function RootLayout({
       </head>
       <body className="arabic-text">
         <ClientComponents />
-        <Header />
+        <SimpleHeader />
         <main className="pt-16">{children}</main>
-        <Footer />
         <AnimatedBackground />
         <ThemeToggle />
         <AccessibilityMenu />
