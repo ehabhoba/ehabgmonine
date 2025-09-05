@@ -9,6 +9,8 @@ import AccessibilityMenu from "@/components/accessibility-menu"
 import PerformanceMonitor from "@/components/performance-monitor"
 import SmartNotifications from "@/components/smart-notifications"
 import SimpleHeader from "@/components/simple-header"
+import { GoogleAnalytics, FacebookPixel } from "@/components/analytics"
+import PerformanceOptimization from "@/components/performance-optimization"
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -17,15 +19,49 @@ const cairo = Cairo({
 })
 
 export const metadata: Metadata = {
-  title: "ehabgm - وكالة التسويق الرقمي في حلوان، القاهرة | تصميم جرافيك وإعلانات ممولة وسوشيال ميديا",
+  metadataBase: new URL('https://ehabgm.online'),
+  title: {
+    default: "ehabgm - وكالة التسويق الرقمي في حلوان، القاهرة | تصميم جرافيك وإعلانات ممولة وسوشيال ميديا",
+    template: "%s | ehabgm - وكالة التسويق الرقمي"
+  },
   description:
     "وكالة ehabgm للتسويق الرقمي في حلوان، القاهرة. خدمات التصميم الجرافيكي، إدارة السوشيال ميديا، الإعلانات الممولة، تطوير المواقع، وتحسين محركات البحث SEO. اتصل بنا: 01022679250",
-  keywords:
-    "تسويق رقمي حلوان، تصميم جرافيك القاهرة، إعلانات ممولة، سوشيال ميديا، تطوير مواقع، SEO مصر، وكالة تسويق حلوان، ehabgm، فيسبوك، انستجرام، تيك توك، يوتيوب، إيهاب محمد",
-  authors: [{ name: "إيهاب محمد - المؤسس والمدير التنفيذي" }],
+  keywords: [
+    "تسويق رقمي حلوان",
+    "تصميم جرافيك القاهرة", 
+    "إعلانات ممولة",
+    "سوشيال ميديا",
+    "تطوير مواقع",
+    "SEO مصر",
+    "وكالة تسويق حلوان",
+    "ehabgm",
+    "فيسبوك",
+    "انستجرام",
+    "تيك توك",
+    "يوتيوب",
+    "إيهاب محمد",
+    "Digital Marketing Egypt",
+    "Social Media Management Cairo",
+    "Web Development Helwan",
+    "Graphic Design Egypt"
+  ],
+  authors: [{ name: "إيهاب محمد - المؤسس والمدير التنفيذي", url: "https://ehabgm.online/about" }],
   creator: "إيهاب محمد",
-  publisher: "ehabgm",
-  robots: "index, follow",
+  publisher: "ehabgm Digital Marketing Agency",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
   icons: {
     icon: [
       { url: "https://i.postimg.cc/TYyK2Rtv/logo.png", sizes: "32x32", type: "image/png" },
@@ -38,15 +74,19 @@ export const metadata: Metadata = {
     title: "ehabgm - وكالة التسويق الرقمي في حلوان، القاهرة",
     description: "خدمات التسويق الرقمي المتكاملة وإدارة السوشيال ميديا من حلوان للعالم العربي",
     url: "https://ehabgm.online",
-    siteName: "ehabgm Digital Marketing",
+    siteName: "ehabgm Digital Marketing Agency",
     locale: "ar_EG",
     type: "website",
+    countryName: "Egypt",
+    emails: ['info@ehabgm.online'],
+    phoneNumbers: ['+201022679250'],
     images: [
       {
         url: "https://i.postimg.cc/TYyK2Rtv/logo.png",
         width: 1200,
         height: 630,
-        alt: "ehabgm - وكالة التسويق الرقمي",
+        alt: "ehabgm - وكالة التسويق الرقمي في حلوان، القاهرة",
+        type: "image/png",
       },
     ],
   },
@@ -80,47 +120,138 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/TYyK2Rtv/logo.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/TYyK2Rtv/logo.png" />
         <link rel="shortcut icon" href="https://i.postimg.cc/TYyK2Rtv/logo.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="ehabgm" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "@id": "https://ehabgm.online/#organization",
+                name: "ehabgm Digital Marketing Agency",
+                alternateName: "إيهاب جي إم للتسويق الرقمي",
+                description: "وكالة التسويق الرقمي في حلوان، القاهرة - المؤسس والمدير التنفيذي: إيهاب محمد",
+                url: "https://ehabgm.online",
+                telephone: "+201022679250",
+                email: "info@ehabgm.online",
+                logo: "https://i.postimg.cc/TYyK2Rtv/logo.png",
+                image: "https://i.postimg.cc/TYyK2Rtv/logo.png",
+                founder: {
+                  "@type": "Person",
+                  name: "إيهاب محمد",
+                  jobTitle: "المؤسس والمدير التنفيذي",
+                  nationality: "Egyptian"
+                },
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Helwan",
+                  addressRegion: "Cairo Governorate",
+                  addressCountry: "Egypt",
+                  postalCode: "11421"
+                },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: 29.85,
+                  longitude: 31.3333
+                },
+                openingHours: "Mo-Su 09:00-22:00",
+                priceRange: "$$",
+                currenciesAccepted: "EGP, USD",
+                paymentAccepted: "Cash, Credit Card, Bank Transfer",
+                sameAs: [
+                  "https://wa.me/201022679250",
+                  "https://www.facebook.com/ehabgm",
+                  "https://www.instagram.com/ehabgm",
+                  "https://www.linkedin.com/company/ehabgm"
+                ],
+                serviceArea: {
+                  "@type": "GeoCircle",
+                  geoMidpoint: {
+                    "@type": "GeoCoordinates",
+                    latitude: 29.85,
+                    longitude: 31.3333
+                  },
+                  geoRadius: "50000"
+                },
+                hasOfferCatalog: {
+                  "@type": "OfferCatalog",
+                  name: "Digital Marketing Services",
+                  itemListElement: [
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        name: "Social Media Management",
+                        description: "إدارة حسابات السوشيال ميديا بشكل احترافي"
+                      }
+                    },
+                    {
+                      "@type": "Offer", 
+                      itemOffered: {
+                        "@type": "Service",
+                        name: "Graphic Design",
+                        description: "تصميم جرافيك احترافي للهوية البصرية"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service", 
+                        name: "Paid Advertising",
+                        description: "إدارة الإعلانات الممولة على جميع المنصات"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": "https://ehabgm.online/#website",
+                url: "https://ehabgm.online",
+                name: "ehabgm - وكالة التسويق الرقمي",
+                description: "وكالة ehabgm للتسويق الرقمي في حلوان، القاهرة",
+                publisher: {
+                  "@id": "https://ehabgm.online/#organization"
+                },
+                inLanguage: "ar-EG",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: "https://ehabgm.online/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ]),
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "ehabgm Digital Marketing Agency",
-              description: "وكالة التسويق الرقمي في حلوان، القاهرة - المؤسس والمدير التنفيذي: إيهاب محمد",
-              url: "https://ehabgm.online",
-              telephone: "+201022679250",
-              founder: {
-                "@type": "Person",
-                name: "إيهاب محمد",
-                jobTitle: "المؤسس والمدير التنفيذي",
-              },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Helwan",
-                addressRegion: "Cairo",
-                addressCountry: "EG",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 29.85,
-                longitude: 31.3333,
-              },
-              sameAs: ["https://wa.me/201022679250"],
-              serviceArea: {
-                "@type": "GeoCircle",
-                geoMidpoint: {
-                  "@type": "GeoCoordinates",
-                  latitude: 29.85,
-                  longitude: 31.3333,
-                },
-                geoRadius: "50000",
-              },
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "الرئيسية",
+                  item: "https://ehabgm.online"
+                }
+              ]
             }),
           }}
         />
       </head>
       <body className="arabic-text">
+        <PerformanceOptimization />
+        <GoogleAnalytics />
+        <FacebookPixel />
         <ClientComponents />
         <SimpleHeader />
         <main className="pt-16">{children}</main>

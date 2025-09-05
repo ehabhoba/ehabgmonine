@@ -1,0 +1,35 @@
+{
+  "name": "ehabgm - وكالة التسويق الرقمي",
+  "short_name": "ehabgm",
+  "description": "وكالة ehabgm للتسويق الرقمي في حلوان، القاهرة - خدمات التصميم الجرافيكي وإدارة السوشيال ميديا والإعلانات الممولة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/TYyK2Rtv/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.postimg.cc/TYyK2Rtv/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "marketing", "design"],
+  "screenshots": [
+    {
+      "src": "https://i.postimg.cc/TYyK2Rtv/logo.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
