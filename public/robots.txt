@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ehabgm.vercel.app/sitemap.xml
+Sitemap: https://ehabgm.online/sitemap.xml
+ads: https://ehabgm.online/ads.txt
