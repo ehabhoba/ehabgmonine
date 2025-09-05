@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
+import { AuthButton } from "@/components/auth/auth-button"
+import LanguageSwitcher from "@/components/language-switcher"
 
 export default function SimpleHeader() {
   return (
@@ -33,12 +35,16 @@ export default function SimpleHeader() {
             </Link>
           </nav>
 
-          <a
-            href="https://wa.me/201022679250"
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
-          >
-            واتساب
-          </a>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <AuthButton />
+            <a
+              href="https://wa.me/201022679250"
+              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+            >
+              واتساب
+            </a>
+          </div>
         </div>
       </div>
     </header>

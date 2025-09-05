@@ -2,31 +2,14 @@
 
 import type React from "react"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import ContactForm from "@/components/forms/contact-form"
 
 export default function ContactClientPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Simulate form submission
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
 
   const contactInfo = [
     {
@@ -90,92 +73,12 @@ export default function ContactClientPage() {
             <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900 flex items-center">
-                  <Send className="w-6 h-6 ml-2 text-blue-600" />
+                  <MessageCircle className="w-6 h-6 ml-2 text-blue-600" />
                   أرسل لنا رسالة
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {isSubmitted ? (
-                  <div className="text-center py-8">
-                    <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-600" />
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">تم إرسال رسالتك بنجاح!</h3>
-                    <p className="text-gray-600">سنتواصل معك في أقرب وقت ممكن</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">الاسم الكامل *</label>
-                        <Input
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="أدخل اسمك الكامل"
-                          className="border-gray-300"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني *</label>
-                        <Input
-                          type="email"
-                          required
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="example@email.com"
-                          className="border-gray-300"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">رقم الهاتف *</label>
-                        <Input
-                          required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+20 1XX XXX XXXX"
-                          className="border-gray-300"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">الخدمة المطلوبة</label>
-                        <select
-                          value={formData.service}
-                          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="">اختر الخدمة</option>
-                          <option value="website">تصميم موقع إلكتروني</option>
-                          <option value="ecommerce">متجر إلكتروني</option>
-                          <option value="social-media">إدارة سوشيال ميديا</option>
-                          <option value="seo">تحسين محركات البحث</option>
-                          <option value="ads">إعلانات ممولة</option>
-                          <option value="branding">تصميم هوية بصرية</option>
-                          <option value="consulting">استشارات تسويقية</option>
-                          <option value="other">أخرى</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">تفاصيل المشروع *</label>
-                      <Textarea
-                        required
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="أخبرنا عن مشروعك وما تحتاجه..."
-                        rows={5}
-                        className="border-gray-300"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                    >
-                      <Send className="w-4 h-4 ml-2" />
-                      إرسال الرسالة
-                    </Button>
-                  </form>
-                )}
+                <ContactForm />
               </CardContent>
             </Card>
 
