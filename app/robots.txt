@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ehabgm.online/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /dashboard/
+Disallow: /cms/
+Disallow: /admin/
+Disallow: /api/
+
+# Allow important pages
+Allow: /blog/
+Allow: /services/
+Allow: /about/
+Allow: /contact/
+Allow: /pricing/
+
+# Crawl delay
+Crawl-delay: 1

@@ -18,6 +18,8 @@ import {
   Award,
   Users,
 } from "lucide-react"
+import AuthButton from "./auth/auth-button"
+import MobileMenu from "./mobile/mobile-menu"
 
 export default function UniversalHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -212,38 +214,15 @@ export default function UniversalHeader() {
                 <MessageCircle className="w-4 h-4 relative z-10" />
                 <span className="relative z-10">استشارة مجانية</span>
               </motion.a>
+
+              {/* Auth Button */}
+              <div className="hidden lg:block">
+                <AuthButton />
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="xl:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors relative"
-            >
-              <AnimatePresence mode="wait">
-                {isMobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="w-6 h-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
+            {/* Mobile Menu */}
+            <MobileMenu />
           </div>
         </div>
 
