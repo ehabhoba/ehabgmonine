@@ -5,13 +5,11 @@ import StatsSection from "@/components/stats-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
-import WhatsAppButton from "@/components/whatsapp-button"
-import Header from "@/components/header"
+ 
 
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <HeroSection />
       <ServicesSection />
       <AboutSection />
@@ -19,7 +17,6 @@ export default function HomePage() {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
-      <WhatsAppButton />
     </main>
   )
 }
