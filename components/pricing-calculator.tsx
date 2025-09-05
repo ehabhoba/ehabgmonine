@@ -29,7 +29,7 @@ export default function PricingCalculator() {
     }
 
     const basePrice = websitePrice + socialPrice + adManagement
-    return basePrice * (businessMultiplier[businessType] || 1.0)
+    return basePrice * (businessMultiplier[businessType as keyof typeof businessMultiplier] || 1.0)
   }
 
   const totalPrice = calculatePrice()
@@ -252,7 +252,7 @@ export default function PricingCalculator() {
                         tech: "تقني",
                         general: "عام",
                       }
-                      const message = `مرحباً، أريد الحصول على عرض سعر مخصص:\n\n🏢 نوع النشاط: ${businessTypeArabic[businessType]}\n📊 تفاصيل المشروع:\n• عدد صفحات الموقع: ${websitePages[0]} صفحة\n• منشورات السوشيال ميديا: ${socialPosts[0]} منشور شهرياً\n• ميزانية الإعلانات: ${adBudget[0].toLocaleString()} جنيه شهرياً\n\n💰 التكلفة المقدرة: ${finalPrice.toLocaleString()} جنيه\n🤖 التوصية الذكية: ${getAIRecommendation()}\n\nأرجو التواصل معي لمناقشة التفاصيل والحصول على استشارة مجانية.`
+                      const message = `مرحباً، أريد الحصول على عرض سعر مخصص:\n\n🏢 نوع النشاط: ${businessTypeArabic[businessType as keyof typeof businessTypeArabic]}\n📊 تفاصيل المشروع:\n• عدد صفحات الموقع: ${websitePages[0]} صفحة\n• منشورات السوشيال ميديا: ${socialPosts[0]} منشور شهرياً\n• ميزانية الإعلانات: ${adBudget[0].toLocaleString()} جنيه شهرياً\n\n💰 التكلفة المقدرة: ${finalPrice.toLocaleString()} جنيه\n🤖 التوصية الذكية: ${getAIRecommendation()}\n\nأرجو التواصل معي لمناقشة التفاصيل والحصول على استشارة مجانية.`
                       window.open(`https://wa.me/201234567890?text=${encodeURIComponent(message)}`, "_blank")
                     }}
                   >

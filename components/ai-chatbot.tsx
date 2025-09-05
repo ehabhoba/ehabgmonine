@@ -18,7 +18,7 @@ export default function AIChatbot() {
   ])
   const [inputMessage, setInputMessage] = useState("")
   const [isTyping, setIsTyping] = useState(false)
-  const messagesEndRef = useRef(null)
+  const messagesEndRef = useRef<HTMLDivElement | null>(null)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -36,7 +36,7 @@ export default function AIChatbot() {
     "أمثلة على أعمالكم",
   ]
 
-  const getBotResponse = (userMessage) => {
+  const getBotResponse = (userMessage: string) => {
     const message = userMessage.toLowerCase()
 
     if (message.includes("موقع") || message.includes("تصميم")) {
@@ -87,7 +87,7 @@ export default function AIChatbot() {
     }, 1500)
   }
 
-  const handleQuickReply = (reply) => {
+  const handleQuickReply = (reply: string) => {
     setInputMessage(reply)
     setTimeout(() => handleSendMessage(), 100)
   }

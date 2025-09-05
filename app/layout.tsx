@@ -9,6 +9,11 @@ import AccessibilityMenu from "@/components/accessibility-menu"
 import PerformanceMonitor from "@/components/performance-monitor"
 import SmartNotifications from "@/components/smart-notifications"
 import SimpleHeader from "@/components/simple-header"
+import GoogleAnalytics from "@/components/analytics/google-analytics"
+import StructuredData, { organizationSchema } from "@/components/seo/structured-data"
+import PerformanceOptimizer, { ProgressiveLoader, MemoryOptimizer } from "@/components/performance/performance-optimizer"
+import MobileOptimizations, { MobileScrollOptimizer, MobilePerformanceOptimizer } from "@/components/mobile/mobile-optimizations"
+import { ToastContainer } from "@/components/ui/toast"
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -121,6 +126,14 @@ export default function RootLayout({
         />
       </head>
       <body className="arabic-text">
+        <ProgressiveLoader />
+        <GoogleAnalytics />
+        <StructuredData type="organization" data={organizationSchema} />
+        <PerformanceOptimizer />
+        <MemoryOptimizer />
+        <MobileOptimizations />
+        <MobileScrollOptimizer />
+        <MobilePerformanceOptimizer />
         <ClientComponents />
         <SimpleHeader />
         <main className="pt-16">{children}</main>
@@ -129,6 +142,7 @@ export default function RootLayout({
         <AccessibilityMenu />
         <SmartNotifications />
         <PerformanceMonitor />
+        <ToastContainer />
         <a
           href="https://wa.me/201022679250"
           className="fixed bottom-6 left-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors"
