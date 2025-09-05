@@ -1,0 +1,61 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
+  "hero": {
+    "title": "Leading Digital Marketing Agency in Helwan",
+    "subtitle": "We help businesses grow and succeed in the digital world",
+    "cta": "Start Your Project Now",
+    "learnMore": "Learn More"
+  },
+  "services": {
+    "title": "Our Integrated Services",
+    "subtitle": "We provide comprehensive marketing solutions for your business growth",
+    "webDesign": {
+      "title": "Web Design",
+      "description": "Professional, fast and responsive websites"
+    },
+    "socialMedia": {
+      "title": "Social Media Management",
+      "description": "Professional management of all social media platforms"
+    },
+    "seo": {
+      "title": "SEO Optimization",
+      "description": "Improve your website's ranking in search results"
+    },
+    "ads": {
+      "title": "Paid Advertising",
+      "description": "Targeted and effective advertising campaigns"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "A team of experts specialized in digital marketing",
+    "description": "We are a digital marketing agency specialized in Helwan, Cairo. We help businesses grow and succeed in the digital world through innovative and effective marketing solutions."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you achieve your goals",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send Message",
+    "whatsapp": "WhatsApp",
+    "address": "Helwan, Cairo, Egypt"
+  },
+  "footer": {
+    "description": "Leading digital marketing agency in Helwan, Cairo",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved"
+  }
+}
