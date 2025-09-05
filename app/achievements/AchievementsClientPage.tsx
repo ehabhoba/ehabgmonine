@@ -9,9 +9,7 @@ import {
   CalendarIcon,
   GlobeAltIcon,
 } from "@heroicons/react/24/outline"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
-import WhatsAppButton from "@/components/whatsapp-button"
 
 const achievements = [
   {
@@ -109,7 +107,6 @@ const awards = [
 export default function AchievementsClientPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-orange-50">
-      <Header />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
@@ -251,7 +248,6 @@ export default function AchievementsClientPage() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   )
 }

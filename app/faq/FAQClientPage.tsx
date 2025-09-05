@@ -3,9 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronDownIcon, QuestionMarkCircleIcon, PhoneIcon } from "@heroicons/react/24/outline"
-import Header from "@/components/header"
 import Footer from "@/components/footer"
-import WhatsAppButton from "@/components/whatsapp-button"
 
 const faqs = [
   {
@@ -55,7 +53,6 @@ export default function FAQClientPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-lime-50">
-      <Header />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4">
@@ -145,7 +142,6 @@ export default function FAQClientPage() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import AuthButton from "@/components/auth-button"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -143,7 +144,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button + Auth */}
           <div className="hidden lg:flex items-center space-x-4 space-x-reverse">
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href="https://wa.me/201022679250?text=مرحباً، أريد حجز استشارة مجانية">
@@ -151,6 +152,7 @@ export default function Header() {
                 احجز استشارتك المجانية
               </Link>
             </Button>
+            <AuthButton />
           </div>
 
           {/* Mobile Menu Button */}
@@ -210,6 +212,9 @@ export default function Header() {
                   احجز استشارتك المجانية
                 </Link>
               </Button>
+              <div className="pt-2">
+                <AuthButton />
+              </div>
             </div>
           </nav>
         )}
